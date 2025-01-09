@@ -39,7 +39,7 @@ headers = {
     "x-amz-access-token": access_token,
 }
 
-api_pedidos = requests.get(url, headers=headers)
+pedidos_api = requests.get(url, headers=headers)
 
 
 # 3ª Parte ------------------------
@@ -83,7 +83,7 @@ CABECALHO = [
 worksheet = sh.get_worksheet(0)
 worksheet.append_row(CABECALHO)
 
-payload_pedidos = api_pedidos.json().get("payload", {}).get("Orders", [])
+payload_pedidos = pedidos_api.json().get("payload", {}).get("Orders", [])
 
 lista_pedidos_amazon = []
 
